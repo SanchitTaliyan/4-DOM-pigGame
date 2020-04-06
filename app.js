@@ -5,7 +5,7 @@ var scores, roundScore, activePlayer, gamePlaying;
 init();
 
 //Roll button
-//Here we have used anonymous function(a funciton which has no name & hence can't be reused)
+//Here we have used anonymous function(a function which has no name & hence can't be reused)
 document.querySelector('.btn-roll').addEventListener('click', function() {
 
   if(gamePlaying) {
@@ -39,7 +39,7 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
     scores[activePlayer] += roundScore;
     document.getElementById('score-' + activePlayer).textContent = scores[activePlayer];
 
-    //check If player won the game
+    //check If player WON the game
     if(scores[activePlayer] >= 20) {
       document.getElementById('name-' + activePlayer).textContent = 'WINNER!';
       document.querySelector('.dice').style.display = 'none';
@@ -74,12 +74,12 @@ document.querySelector('.btn-new').addEventListener('click', init);
 //game Initialization function
 function init() {
   scores = [0, 0];
-  roundScore = 0;
+  roundScore = 5;
   activePlayer = 0;
   gamePlaying = true;
 
   document.querySelector('.dice').style.display = 'none';
-  document.getElementById('score-0').textContent = '0';
+  document.getElementById('score-0').textContent = '0'; 
   document.getElementById('score-1').textContent = '0';
   document.getElementById('current-0').textContent = '0';
   document.getElementById('current-1').textContent = '0';
@@ -91,4 +91,5 @@ function init() {
   document.querySelector('.player-1-panel').classList.remove('active');
   document.querySelector('.player-0-panel').classList.add('active');
 
+  //document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + roundScore + '</em>'; 
 }
